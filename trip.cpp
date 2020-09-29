@@ -1,28 +1,17 @@
-
-#include "trip.h"
-
-#include<string>
 #include <iostream>
-#include <list>
-#include <iterator>
+#include"trip.h"
 
-Trip::Trip():t_source(""),t_dest(""),t_distance(0){}
 
-Trip::Trip(std::string src,std::string dst,int dist):t_source(src),t_dest(dst),t_distance(dist){}
+Trip::Trip():
+    source_city(""),destination_city(""){}
 
-std::string Trip:: getOrigin()
-{
-    return t_source;
-}
+Trip::Trip(std::string source_city,std::string destination_city):
+            source_city(source_city),destination_city(destination_city){}
 
-std::string Trip::getDestination()
-{
-   return t_dest;
-}
+std::string Trip::getOrigin(){
+return source_city;}
 
-int Trip::getDistance()
-{
-    return t_distance;
-}
+std::string Trip::getDestination(){
+return destination_city;}
 
-   
+
