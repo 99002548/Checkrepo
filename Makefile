@@ -1,15 +1,12 @@
-all: all.out 
-all.out : trip.o flighttrip.o tripdb.o trip-test.o tripdb-test.o
-	g++ $^ -o $@ -lgtest -lgtest_main -lpthread
-tripdb-test.o: tripdb-test.cpp trip.h flighttrip.h tripdb.h
-	g++ $< -c
-trip-test.o: trip-test.cpp trip.h flighttrip.h
-	g++ $< -c
-tripdb.o : tripdb.cpp tripdb.h flighttrip.h trip.h
-	g++ $< -c
-flighttrip.o : flighttrip.cpp flighttrip.h trip.h
-	g++ $< -c    
-trip.o : trip.cpp trip.h
-	g++ $< -c
+all:all.out
+
+all.out:test.o sum.o sqr.o
+	gcc test.o sum.o sqr.o -o all.out
+test.o:test.c fun.h
+	gcc test.c -c
+sum.o:sum.c fun.h
+	gcc sum.c -c
+sqr.o:sqr.c fun.h
+	gcc sqr.c -c
 clean:
-	rm -rf *.o *.out
+	rm -rf *.o all.out
